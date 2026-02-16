@@ -7,8 +7,9 @@ set -euo pipefail
 # Directorio del script
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Cargar librería común si existe
-EXPUESTO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+# Cargar librería común si existe (Expuesto/ es el repo de infraestructura)
+WORKSPACE_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+EXPUESTO_ROOT="${WORKSPACE_ROOT}/Expuesto"
 [[ -f "$EXPUESTO_ROOT/lib/bash-common.sh" ]] && source "$EXPUESTO_ROOT/lib/bash-common.sh"
 
 show_help() {
