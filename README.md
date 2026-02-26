@@ -38,3 +38,15 @@ Los scripts usan rutas relativas para facilitar su portabilidad. Si la estructur
 Si aún no posee un modelo en formato `.gguf`, puede descargar uno apropiado (por ejemplo, *Mistral 7B Instruct*). Consulte la documentación oficial de llama.cpp o repositorios de modelos para obtener el archivo. Una vez descargado, colóquelo en la ruta indicada o modifique la variable `MODEL_FILE` en los scripts de los personajes para que apunte a la ubicación de su modelo.
 
 Esperamos que estos perfiles le sirvan para explorar diferentes personalidades de IA y para probar inferencias locales con *llama.cpp*.
+
+## Nuevos prompts agregados
+
+Se añadieron nuevos paquetes con prompt `.txt`, script `.sh` de lanzamiento rápido y README específico:
+
+- `Cuarteto_Agentico/`
+- `Teatro_Multiagente/`
+- `Triada_Manifesto/`
+- `Robots_Trio/`
+- `NullRoot/`
+
+Cada script usa un modelo genérico por defecto (`MODEL_NAME=modelo-generico-instruct`) y deja un ejemplo de ejecución para adaptarlo a tu runtime (`llama-cli`, API o wrapper local).

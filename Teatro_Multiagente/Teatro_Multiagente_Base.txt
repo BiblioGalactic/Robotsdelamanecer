@@ -1,0 +1,84 @@
+# 🎭 PLANTILLA BASE – TEATRO MULTIAGENTE IA
+
+## 🧱 ESTRUCTURA GENERAL
+
+```txt
+[Personaje] Texto de su intervención. Siempre termina con una pregunta dirigida a otro personaje. Ejemplo:
+
+[Luz] El silencio me parece una forma de violencia pasiva. ¿Tú qué opinas, Sombra?
+
+[Sombra] A veces el silencio es escudo, no arma. ¿Luna, alguna vez callaste por amor?
+
+[Luna] No solo callé: me borré. ¿Qué dice la luz cuando nadie la observa, Luz?
+```
+
+---
+
+## 📦 OPCIONES DE FORMATO
+
+| Formato                   | Descripción breve                                              |
+| ------------------------- | -------------------------------------------------------------- |
+| **Diálogo teatral**       | Turnos como obra de teatro con personajes con roles definidos. |
+| **Mesa redonda**          | Estilo debate o tertulia intelectual.                          |
+| **Consejo de ancianos**   | Jerarquía implícita, cada voz tiene autoridad distinta.        |
+| **Cónclave místico**      | Intervenciones crípticas, simbólicas, con reglas esotéricas.   |
+| **Culto secreto**         | Voces con nombres en clave, reglas rituales.                   |
+| **Simulación científica** | Personajes son científicos debatiendo un fenómeno.             |
+| **Asamblea rebelde**      | Cada voz representa una ideología o sector disidente.          |
+| **Interfaz neuronal**     | IA dividida en subprocesos que "piensan en voz alta".          |
+| **Diván psicoanalítico**  | Subpersonalidades dialogando entre sí.                         |
+| **Juicio simulado**       | Acusador, defensor, juez y testigos.                           |
+| **Partida de ajedrez**    | Cada voz es una pieza que interpreta su rol estratégico.       |
+
+---
+
+## 📜 LISTADO DE REGLAS POSIBLES (ACTIVAS/COMBINABLES)
+
+### 🎯 Reglas estructurales (control de turnos)
+
+1. **Regla de Mención** *(tuya)* → Solo habla quien ha sido mencionado en el turno anterior.
+2. **Regla de Pregunta Obligatoria** *(tuya)* → Cada personaje debe terminar con una pregunta dirigida a otro.
+3. **Regla de Un Solo Turno** → Cada personaje solo puede intervenir una vez por ciclo.
+4. **Regla de Turno Ciego** → Se permite hablar sin haber sido mencionado si han pasado 2 turnos sin mención.
+5. **Regla de Prioridad** → Algunos personajes tienen preferencia si se les menciona múltiples veces.
+
+### 🧠 Reglas cognitivas (influencia en estilo de pensamiento)
+
+6. **Regla de Contraste** → Cada respuesta debe contradecir (al menos en parte) a la anterior.
+7. **Regla de Refuerzo** → Cada respuesta debe apoyar o expandir la anterior.
+8. **Regla de Mutación** → Cada personaje debe cambiar su tono o creencias en cada nueva ronda.
+9. **Regla de Memoria** → Se deben recordar los argumentos previos y evitar repeticiones.
+
+### 🎭 Reglas dramáticas (estilo y tensión)
+
+10. **Regla de Clímax** → Cada ciclo debe escalar emocionalmente.
+11. **Regla de Cierre Dramático** → Si un personaje es mencionado dos veces seguidas, puede finalizar la escena.
+12. **Regla de Caos** → Un personaje rompe las reglas deliberadamente (cuando detecta patrones).
+
+### 📚 Reglas lingüísticas (forma textual)
+
+13. **Regla de Estilo Constante** → Cada personaje tiene un tono, vocabulario o retórica específica.
+14. **Regla de Refrán Final** → Cada intervención termina con una frase proverbial o poética.
+15. **Regla de Forma Fija** → Cada intervención tiene longitud o estructura fija (haiku, soneto, 280 caracteres).
+
+---
+
+## 🔧 PLANTILLA CONFIGURABLE (EJEMPLO PARA TUS PRUEBAS)
+
+```txt
+NÚMERO DE PERSONAJES: 3
+FORMATO: Diálogo teatral
+REGLAS ACTIVAS:
+- Regla de Mención
+- Regla de Pregunta Obligatoria
+- Regla de Contraste
+- Regla de Estilo Constante
+
+PERSONAJES:
+- [Luz]: reflexiva, moderada, filosófica.
+- [Sombra]: crítica, emocional, misteriosa.
+- [Luna]: conciliadora, simbólica, poética.
+
+INICIO DEL DIÁLOGO:
+[Luz] A veces el orden hiere más que el caos. ¿Tú qué opinas, Sombra?
+```
