@@ -1,52 +1,29 @@
 # Robotsdelamanecer
 
+Empece este repo con cuatro voces clasicas y acabo creciendo hasta 10 paquetes. No los fusione en un solo prompt gigante porque cuando lo probe perdia justo lo que me interesaba: la friccion entre personalidades.
 
-# Colección de perfiles de personajes IA
+## Que hay aqui
 
-Este paquete contiene perfiles de cuatro personajes icónicos de ciencia ficción: **HAL_10**, **Da1ta1**, **CC‑33PPOO** y **Vender**. Cada carpeta incluye:
+Cada carpeta suele mantener tres piezas:
 
-- Un archivo `.txt` con una narración en primera persona de cada personaje, siguiendo el formato del ejemplo `R12D12.txt` que acompaña a esta entrega.
-- Un script `.sh` listo para utilizar el binario `llama-cli` de *llama.cpp* con el prompt del personaje. Los scripts utilizan rutas relativas y realizan comprobaciones de existencia y permisos antes de ejecutarse. Todos siguen las normas de estilo definidas por el usuario para cabeceras, validaciones, gestión de errores y limpieza.
-- Un `README.md` específico del personaje con información sobre el mismo y cómo ejecutar el script.
+- un `.txt` con la voz o manifiesto,
+- un `.sh` para lanzarlo con `llama.cpp`,
+- un `README.md` propio.
 
-## Requisitos
+## Por que esta separado por personajes
 
-- **Entorno de llama.cpp**: Debe tener compilado el proyecto y disponer del binario `llama-cli`. El script espera encontrarlo en `../../modelo/llama.cpp/build/bin/llama-cli` relativo a cada carpeta de personaje. Modifique esa ruta en los scripts si su instalación difiere.
-- **Modelo `.gguf`**: Necesitará un modelo de lenguaje en formato `.gguf`. Por defecto, los scripts apuntan a `../../modelo/modelos_grandes/M6/mistral-7b-instruct-v0.1.Q6_K.gguf`. Descargue o coloque su modelo en esa ruta o edite la variable `MODEL_FILE` en cada script para especificarlo.
-- **Herramientas de línea de comandos**: `bash`, `sed`, `mktemp` y `tee` deben estar disponibles. Los scripts validan su presencia antes de ejecutarse.
+Queria que cada voz tuviera su propio espacio de contexto, logs y salida. Compartir demasiado entre personajes hacia el mantenimiento mas limpio, pero volvia las respuestas demasiado parecidas.
 
-## Uso
+## Lo que asumo del entorno
 
-Para utilizar un perfil, entre en la carpeta del personaje, asegúrese de que el script tenga permisos de ejecución y ejecútelo. Por ejemplo, para HAL 9000:
+Los lanzadores esperan una instalacion local de `llama.cpp` y un modelo GGUF accesible por ruta relativa. Esa decision me dio portabilidad dentro de mi propio workspace, pero obliga a tocar rutas si tu arbol no se parece al mio.
 
-```bash
-cd HAL_9000
-chmod +x HAL_10.sh
-./HAL_10.sh
-```
+## Deuda honesta
 
-El script limpiará el prompt, validará los recursos y luego lanzará la inferencia. El resultado de la conversación se guardará en un archivo `conversaciones_<personaje>.txt` dentro de una subcarpeta `destino`. Los mensajes informativos y de error se registran con marcas de tiempo en un archivo de log creado en el momento de la ejecución.
+- hay duplicacion entre algunos lanzadores,
+- varios prompts crecieron mas por uso que por diseno elegante,
+- este repo sirve mejor para explorar tonos y encuadres que para construir una arquitectura de agentes compleja.
 
-Repita el mismo procedimiento en las carpetas `Da1ta1`, `CC-33PPOO` y `VENDER` para los demás personajes.
+## Si vienes nuevo
 
-## Nota sobre las rutas relativas
-
-Los scripts usan rutas relativas para facilitar su portabilidad. Si la estructura propuesta no coincide con la de su entorno, edite las variables `MODEL_BIN` y `MODEL_FILE` en cada script para apuntar a las rutas correctas. El resto de componentes (prompt, destino y logs) permanecerán dentro de la carpeta del personaje, por lo que el paquete puede moverse sin romper el funcionamiento.
-
-## Descarga del modelo
-
-Si aún no posee un modelo en formato `.gguf`, puede descargar uno apropiado (por ejemplo, *Mistral 7B Instruct*). Consulte la documentación oficial de llama.cpp o repositorios de modelos para obtener el archivo. Una vez descargado, colóquelo en la ruta indicada o modifique la variable `MODEL_FILE` en los scripts de los personajes para que apunte a la ubicación de su modelo.
-
-Esperamos que estos perfiles le sirvan para explorar diferentes personalidades de IA y para probar inferencias locales con *llama.cpp*.
-
-## Nuevos prompts agregados
-
-Se añadieron nuevos paquetes con prompt `.txt`, script `.sh` de lanzamiento rápido y README específico:
-
-- `Cuarteto_Agentico/`
-- `Teatro_Multiagente/`
-- `Triada_Manifesto/`
-- `Robots_Trio/`
-- `NullRoot/`
-
-Cada script usa un modelo genérico por defecto (`MODEL_NAME=modelo-generico-instruct`) y deja un ejemplo de ejecución para adaptarlo a tu runtime (`llama-cli`, API o wrapper local).
+No leas esto como una libreria de personajes "terminados". Leelo como una coleccion de voces que fui afinando porque cada una me dejaba ver fallos distintos del modelo.
